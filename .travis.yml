@@ -15,7 +15,8 @@ script:
   - tar xf redis-$VERSION.tar.gz
   - mv redis-$VERSION/* .
   - make
-  - tar -czvf redis-server-$TRAVIS_OS_NAME-$VERSION.tar.gz src/redis-server
+  - mv src/redis-server .
+  - tar -czvf redis-server-$TRAVIS_OS_NAME-$VERSION.tar.gz redis-server
   - ls
 
 deploy:
