@@ -29,4 +29,4 @@ deploy:
     repo: johnny/redis-binaries
     all_branches: true
   skip_cleanup: true
-  draft: true
+  # draft: true
