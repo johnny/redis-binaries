@@ -7,6 +7,7 @@ matrix:
   include:
   - os: linux
   - os: osx
+  - os: windows
 script:
 - make
 - tar -czvf redis-server-$TRAVIS_OS_NAME-5.0.3.tar.gz src/redis-server
