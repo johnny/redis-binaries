@@ -1,0 +1,22 @@
+language: c
+
+before_script:
+  - wget http://download.redis.io/releases/redis-5.0.3.tar.gz
+  - tar xf redis-5.0.3.tar.gz
+  - mv redis-5.0.3/* .
+
+matrix:
+  include:
+    - os: linux
+    - os: osx
+
+script: make
+
+after_script:
+  - tar -czvf redis-server-5.0.3.tar.gz src/redis-server
+
+# deploy:
+#   provider: releases
+#   file: redis-server-5.0.3.tar.gz
+#   skip_cleanup: true
+#   draft: true
