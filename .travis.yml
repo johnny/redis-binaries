@@ -2,6 +2,7 @@ language: c
 env:
   global:
     - VERSION=$TRAVIS_TAG
+if: tag IS present
 matrix:
   include:
     - os: linux
