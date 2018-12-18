@@ -1,17 +1,18 @@
 language: c
 env:
   global:
-    - VERSION=5.0.3
-before_script:
-  - wget http://download.redis.io/releases/redis-$VERSION.tar.gz
-  - tar xf redis-$VERSION.tar.gz
-  - mv redis-$VERSION/* .
+    - VERSION=$TRAVIS_TAG
 matrix:
   include:
     - os: linux
     - os: osx
     # - os: windows
 script:
+  - echo $VERSION
+  - echo $TRAVIS_TAG
+  - wget http://download.redis.io/releases/redis-$VERSION.tar.gz
+  - tar xf redis-$VERSION.tar.gz
+  - mv redis-$VERSION/* .
   - make
   - tar -czvf redis-server-$TRAVIS_OS_NAME-$VERSION.tar.gz src/redis-server
   - ls
