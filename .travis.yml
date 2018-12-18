@@ -11,6 +11,9 @@ script:
 - make
 - tar -czvf redis-server-$TRAVIS_OS_NAME-5.0.3.tar.gz src/redis-server
 - ls
+
+before_deploy:
+  - git tag 5.0.3
 deploy:
   provider: releases
   api_key:
