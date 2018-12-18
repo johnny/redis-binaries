@@ -1,6 +1,7 @@
 language: c
 env:
-  - VERSION=$TRAVIS_TAG
+  global:
+    - VERSION=5.0.3
 before_script:
   - wget http://download.redis.io/releases/redis-$VERSION.tar.gz
   - tar xf redis-$VERSION.tar.gz
